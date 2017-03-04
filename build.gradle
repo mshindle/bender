@@ -1,0 +1,35 @@
+
+plugins {
+    id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '1.2.4'
+}
+
+group 'com.coffeegem'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    sourceCompatibility = 1.8
+
+    compile group: 'net.dv8tion', name: 'JDA', version: '3.0.BETA2_143'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.coffeegem.Bender'
+    }
+}
+
+run {
+    mainClassName = 'com.coffeegem.Bender'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.4.1'
+}
